@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+<title>Homepage</title>
+</head>
+
+<body>
+	<div class="container" layout:fragment="content">
+		<div class="row justify-content-md-center">
+			<div class="col col-lg-4">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"><a href="/account/register">Register</a></li>
+					<li class="list-group-item"><a href="/notification/register-by-email-success">Register By Email success - Resend Active</a></li>
+					<li class="list-group-item"><a href="/account/verify-phone-register">Verify Register By Phone</a></li>
+					<li class="list-group-item"><a href="/notification/register-success">Notification Register Invitation Success</a></li>
+					<li class="list-group-item"><a href="/notification/register-fail">Notification Register Fail</a></li>
+					<li class="list-group-item"><a href="/notification/active-success">Notification Active Success</a></li>
+					<li class="list-group-item"><a href="/notification/active-fail">Notification Active Fail</a></li>
+				</ul>
+			</div>
+			<div class="col col-lg-4">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"><a href="/account/forgot-password">Reset Password</a></li>
+					<li class="list-group-item"><a href="/account/forgot-password/verification">Verify Code Reset Password</a></li>
+					<li class="list-group-item"><a href="/notification/link-reset-password-sent">Link reset password sent</a></li>
+					<li class="list-group-item"><a href="/account/update-new-password">Update New Password</a></li>
+					<li class="list-group-item"><a href="/notification/reset-password-success">Notification Reset Pass Success</a></li>
+					<li class="list-group-item"><a href="/notification/update-new-password-success">Notification Update New Pass Success</a></li>
+				</ul>
+			</div>
+			<div class="col col-lg-4">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item"><a href="/login-info">Login</a></li>
+					<li class="list-group-item"><a href="/notification/email-verified-success">Email Verified Success</a></li>
+					<li class="list-group-item"><a href="/notification/email-verified-fail">Email Verified Fail</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

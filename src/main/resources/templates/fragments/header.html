@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+
+<body>
+
+<div th:fragment="header">
+    <p th:text="#{text.hungthinhid}" class="header"></p>
+    <span class="language">
+        <a href="" onclick="setLinkAddParams(this, 'lang', 'vi')" th:text="#{text.vietnam}"></a> |
+        <a href=""  onclick="setLinkAddParams(this, 'lang', 'en')" th:text="#{text.english}"></a>
+    </span>
+<!--    <div class="logout">-->
+<!--        <form method="post" th:action="@{/logout}"  class="navbar-form navbar-right">-->
+<!--            <button id="logout-button" type="submit" class="btn btn-danger">Logout</button>-->
+<!--        </form>-->
+<!--    </div>-->
+</div>
+
+</body>
+
+</html>

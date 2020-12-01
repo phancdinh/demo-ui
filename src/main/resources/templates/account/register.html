@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{registration-page.label.title}"></title>
+
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css}" />
+</head>
+<body>
+
+<div class="container" layout:fragment="content">
+    <div class="row justify-content-md-center mt-5">
+        <div class="login-form">
+            <h3 th:text="#{registration-page.label.sign-up-form}"></h3>
+            <div id="id_message_register" class="text-danger" th:text="${message}"></div>
+            <form id="id_register_form" action="#" th:action="${@environment.getProperty('form.register.action')}" th:object="${register}" method="post" novalidate autocomplete="off">
+                <div class="form-floating mb-4">
+                    <input th:if="${login_name}" id="id_register_login_name" name="login_name" th:value="${login_name}" type="text" class="form-control" aria-describedby="emailHelp"
+                           th:readonly="${is_invite}" required>
+                    <input th:unless="${login_name}" id="id_register_login_name" name="login_name" type="text" class="form-control" th:placeholder="#{registration-page.label.enter.username}" required>
+                    <label for="id_register_login_name" th:text="#{registration-page.label.username}">Email address</label>
+                    <div class="invalid-feedback" th:text="#{registration-page.text.valid_login_name}"></div>
+                </div>
+                <div class="form-floating mb-4">
+                    <input name="password" type="password" class="form-control" th:placeholder="#{registration-page.label.enter.password}" id="id_register_pass" maxlength="30" required>
+                    <label for="id_register_pass" th:text="#{registration-page.label.password}">Password</label>
+                    <div class="invalid-feedback" th:text="#{registration-page.text.valid_password}"></div>
+                    <span id="eye_pass_register" toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></span>
+                </div>
+                <input type="hidden" name="ht_id" th:value="${ht_id}">
+                <input type="hidden" name="lead_source" th:value="#{text.lead-source.name}">
+                <button type="submit" class="btn btn-large btn-primary col-12" th:text="#{registration-page.label.signup}"></button>
+                <div class="mt-2"><b th:text="#{registration-page.text.register.have_account}"></b> <a href="#" th:text="#{registration-page.label.login}"></a></div>
+                <div class="mt-2"><small class="text-muted" th:utext="#{registration-page.text.register.decription}"></small></div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="tncModal" tabindex="-1" role="dialog" aria-labelledby="tncModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tncModalTitle" th:text="#{registration-page.label.title.tnd}">Terms and conditions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body box_content_tnd" th:utext="#{registration-page.text.tnd}">
+                    - Khi quý khách gửi thông tin cá nhân của quý khách cho chúng tôi, quý khách đã đồng ý với các điều khoản mà chúng tôi đã nêu ở trên, Tập đoàn Hưng Thịnh cam kết bảo mật thông tin cá nhân của quý khách bằng mọi cách thức có thể. Chúng tôi sẽ sử dụng nhiều công nghệ bảo mật thông tin khác nhau nhằm bảo vệ thông tin này không bị truy lục, sử dụng hoặc tiết lộ ngoài ý muốn.
+                    <br>
+                    - Tuy nhiên, dịch vụ của chúng tôi có thể liên kết đến các trang web và dịch vụ của bên thứ ba nằm ngoài tầm kiểm soát của chúng tôi. Chúng tôi không chịu trách nhiệm về sự an toàn hoặc bảo mật của bất kỳ thông tin nào được thu thập bởi các trang web hoặc dịch vụ khác. Bạn phải thận trọng và xem xét các quyết định về bảo mật thông tin cá nhân áp dụng cho các trang web và dịch vụ của bên thứ ba mà bạn sử dụng. Chúng tôi không thể đưa ra một cam kết chắc chắn rằng thông tin quý khách cung cấp cho chúng tôi sẽ được bảo mật một cách tuyệt đối an toàn, và chúng tôi không thể chịu trách nhiệm trong trường hợp có sự truy cập trái phép thông tin cá nhân của quý khách như các trường hợp quý khách tự ý chia sẻ thông tin với người khác.
+                    <br>
+                    - Nội dung "Chính sách bảo mật thông tin" này chỉ áp dụng tại Tập đoàn Hưng Thịnh, không bao gồm hoặc liên quan đến các bên thứ ba đặt quảng cáo hay có links tại Tập đoàn Hưng Thịnh. Chúng tôi khuyến khích quý khách đọc kỹ chính sách bảo mật thông tin của các trang web của bên thứ ba trước khi cung cấp thông tin cá nhân cho các trang web đó. Chúng tôi không chịu trách nhiệm dưới bất kỳ hình thức nào về nội dung và tính pháp lý của trang web thuộc bên thứ ba.
+                    <br>
+                    - Nếu có bất kỳ thắc mắc, góp ý nào liên quan đến chính sách bảo mật thông tin của Tập đoàn Hưng Thịnh quý khách vui lòng phản hồi tại địa chỉ Email: info@hungthinhcorp.com.vn hoặc Số điện thoại: (028) 7307 5888
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/resources/js/register.js}"></script>
+
+</div>
+
+</body>
+</html>

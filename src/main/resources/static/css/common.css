@@ -1,0 +1,144 @@
+h4 {
+    color: black;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header {
+    color: red;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    font-size: 32px;
+}
+
+
+.otp-inputs {
+    text-align: center;
+    font-size: 24px;
+    width: 50px;
+    margin: 16px;
+}
+
+.language {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logout {
+    float: right;
+    position: absolute;
+    right: 5px;
+    top: 50px;
+}
+
+.card-policy-password {
+    flex-direction: row !important;
+}
+
+.text-policy-password {
+    margin-left: 5px;
+}
+
+.box_content_tnd {
+    height: 500px;
+    overflow-y: auto;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 4px solid #000000;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    text-align: center;
+    margin: 0 auto;
+    display: none;
+}
+
+.text-resend-otp-enable {
+    color: blue;
+    text-decoration: underline !important;
+}
+
+.text-resend-otp-disable {
+    color: gray;
+    text-decoration: underline;
+    pointer-events: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.form-control {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding-left: 0;
+    font-size: 14px;
+}
+.btn-primary {
+    background: #F08C31;
+}
+
+.form-floating > .form-control.focusin::placeholder {
+    color: #B1B3B6;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.form-floating > .form-control,
+.form-floating > .form-select {
+    padding-left: 0;
+}
+
+.form-floating > label {
+    padding-left: 0;
+    font-size: 14px;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+    margin-left: -0.15rem;
+}
+.form-control.is-invalid, .was-validated .form-control:invalid{
+    background-image: none;
+}
+.form-control.is-invalid:focus, .was-validated .form-control:invalid:focus {
+    box-shadow: none;
+}
+.field_icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.form-control.is-invalid ~ .field_icon {
+    top: 35%;
+}
+
+.login-form {
+    width: 100%;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .login-form {
+        width: 335px;
+    }
+}
+
+

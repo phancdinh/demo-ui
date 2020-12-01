@@ -1,0 +1,31 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{activation-account-page.label.title}"></title>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <div class="row justify-content-md-center mt-5">
+        <div class="col col-lg-6 border p-5">
+            <h4 th:text="#{activation-account-page.label.verify-by-phone}"></h4>
+            <div class="text-justify" th:text="#{activation-account-page.text.please-check-SMS}"></div>
+            <div id="id_message_verify_otp" class="text-danger" th:text="${message}"></div>
+            <form th:action="${@environment.getProperty('htid.form.verify_phone_register.action')}" method="post">
+                <div class="form-group row mt-3">
+                    <input name="otp" type="text" class="form-control otp-inputs" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
+                    <input name="otp" type="text" class="form-control otp-inputs" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
+                    <input name="otp" type="text" class="form-control otp-inputs" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
+                    <input name="otp" type="text" class="form-control otp-inputs" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
+                    <input name="otp" type="text" class="form-control otp-inputs" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
+                    <input name="otp" type="text" class="form-control otp-inputs" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
+                </div>
+                <input type="hidden" name="id" th:value="${id}">
+                <input type="hidden" name="phone" th:value="${phone}">
+                <button type="submit" class="btn btn-large btn-primary col-12" th:text="#{activation-account-page.label.button-submit}">Verify</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

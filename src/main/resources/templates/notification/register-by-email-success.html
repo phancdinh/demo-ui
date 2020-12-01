@@ -1,0 +1,43 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{notification-page.title.notification}">Notification</title>
+    <link th:href="@{/resources/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script th:src="@{/resources/jquery/jquery.min.js}"></script>
+    <script th:src="@{/resources/bootstrap/js/bootstrap.js}"></script>
+
+    <link th:href="@{/resources/css/common.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <div class="row justify-content-md-center mt-5">
+        <div class="col col-lg-6 border p-5">
+            <h4 style="text-align: center" th:text="#{notification-page.title.notification}"></h4>
+            <br>
+            <div class="text-justify" th:text="${noticeValue}"></div>
+            <div class="text-center m-3">
+                <button type="submit" class="btn btn-large btn-secondary col-8"
+                        th:text="#{notification-page.label.close}"></button>
+            </div>
+
+            <div class="text-success text-center d-none" id="notication_resend_activation_link" th:utext="#{notification-page.messenger.register-by-email.notication-received-activation-email}"></div>
+            <div class="loader" id="loader_resend_activation_link"></div>
+
+            <div id="button_resend_activation_link">
+                <div class="text-center" th:text="#{notification-page.messenger.register-by-email.ask-received-activation-email}"></div>
+                <div class="text-center">
+                    <a href="javascript:void(0)" id="button_resend" th:text="#{notification-page.messenger.register-by-email.resend-email}"></a>
+                </div>
+            </div>
+
+            <div th:unless="${is_activated}" class="text-center">
+                <span th:utext="${remaining_attempts}"></span>
+            </div>
+
+            <div id="error-message" class="text-danger text-center" th:text="${message}"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

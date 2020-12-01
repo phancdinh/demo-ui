@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Hung Thinh ID</title>
+    <link th:href="@{/resources/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/resources/css/common.css}" rel="stylesheet"/>
+    <script th:src="@{/resources/jquery/jquery.min.js}"></script>
+    <script th:src="@{/resources/bootstrap/js/bootstrap.js}"></script>
+    <script th:src="@{/resources/js/script.js}"></script>
+</head>
+
+<body>
+
+<div th:replace="~{fragments/header :: header}">Header</div>
+
+<div layout:fragment="content">
+    <h1>Static content Hung Thinh ID</h1>
+</div>
+<div th:replace="~{fragments/footer :: footer}">Footer</div>
+
+
+</body>
+
+</html>
